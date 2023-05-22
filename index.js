@@ -21,7 +21,7 @@ const start = async () => {
     try {
         // connect mongodb database
         mongoose.set("strictQuery", false);
-        await mongoose.connect(`mongodb+srv://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@cluster0.wchx7f7.mongodb.net/${process.env.DATABASE_NAME}`)
+        await mongoose.connect(`mongodb+srv://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@cluster0.fatr7k4.mongodb.net/${process.env.DATABASE_NAME}`)
         .then(() => console.log("DATABASE CONNECTED |> MONGODB"))
         // start rest api
         app.listen(port, () => {

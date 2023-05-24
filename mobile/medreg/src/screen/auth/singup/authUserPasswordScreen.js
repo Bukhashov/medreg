@@ -8,8 +8,8 @@ var width = Dimensions.get('window').width; //full width
 var height = Dimensions.get('window').height;
 
 const AuthUserPasswordScreen = (props) => {
-    const [newUserPassword, setNewUserPassword] = useState([]);
-    const [newUserPasswordConfirem, setNewUserPasswordConfirem] = useState([]);
+    const [newUserPassword, setNewUserPassword] = useState("");
+    const [newUserPasswordConfirem, setNewUserPasswordConfirem] = useState("");
     
 
     const auth = async () => {
@@ -22,10 +22,16 @@ const AuthUserPasswordScreen = (props) => {
     }
     const singup = async () => {
         try {
+            console.log(props.route.params);
+            // console.log(props.route.params.content.firstname);
+            // console.log(props.route.params.content.lastname);
+            console.log(newUserPassword);
+
             await axios.post(`${config.API_URI}${config.API_VERSION}/auth/user/singin`, {
-                iin: props.route.params.content.iin,
-                firstname: props.route.params.content.firstname,
-                lastname: props.route.params.content.lastname,
+                iin: props.route.params.content.newUserIIN,
+                firstname: props.route.params.content.newUserFirstname,
+                lastname: props.route.params.content.newUserLastname,
+                patronymic: props.route.params.content.newUserPatronymic,
                 password: newUserPassword,
                
             }).then((response) => {

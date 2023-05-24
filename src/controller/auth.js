@@ -31,7 +31,7 @@ class Auth{
 
     }
     singup = async (req, res) => {
-        const {lastname, firstname, iin, password} = req.body;
+        const {lastname, firstname, patronymic, iin, password} = req.body;
         
         if (lastname != "" && lastname.length > 4){
             if (password.length >= 8) {
@@ -43,6 +43,7 @@ class Auth{
                         lastname: lastname,
                         firstname: firstname,
                         Iin: iin,
+                        patronymic: patronymic,
                         password: bcrypt.hashSync(password, salt),
                     }).save();
                     res.status(200).json({ massage: 'user created' })

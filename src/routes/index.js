@@ -4,8 +4,10 @@ const router = Router();
 const Auth = require('../controller/auth.js');
 
 // auth
-router.post('/singin', Auth.singin);
-router.post('/singup', Auth.singup);
+router.post('/auth/user/singin', Auth.singin);
+router.post('/auth/user/singup', Auth.singup);
+
+
 
 // router.post('/')
 

@@ -21,6 +21,8 @@ const SinginScreen = ({navigation}) => {
                 await AsyncStorage.setItem('lastname', response.data.lastname)
                 await AsyncStorage.setItem('firstname', response.data.firstname)
                 await AsyncStorage.setItem('iin', response.data.iin)
+                await AsyncStorage.setItem('patronymic', response.data.patronymic)
+                
                 console.log(response.data);
             });
             

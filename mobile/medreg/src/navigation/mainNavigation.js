@@ -8,6 +8,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import HomeScreen from '../screen/home/homeScreen';
 import ProfileScreen from '../screen/auth/profileScreen';
+import ResultsScreen from '../screen/results/resultsScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -69,7 +70,7 @@ const MainNavigation = ({navigation}) => {
             })}
         >
             <Tab.Screen name="Главный"  component={HomeScreen} />
-            <Tab.Screen name="Результаты" component={ProfileScreen} />
+            <Tab.Screen name="Результаты" component={ResultsScreen} />
             <Tab.Screen name="Қолданушы" component={ProfileScreen} />
         </Tab.Navigator>
     )

@@ -9,7 +9,7 @@ class Auth{
         const { password, iin } = req.body;
 
         if(password.length >= 8){
-            const user = await userModel.findOne({IIN: iin});
+            const user = await userModel.findOne({Iin: iin});
             if(user) {
                 const PasswordController = bcrypt.compareSync(password, user.password);
                 if(PasswordController) {
@@ -17,7 +17,7 @@ class Auth{
                        uid: user._id,
                        lastname: user.lastname,
                        firstname: user.firstname,
-                       iin: user.IIN
+                       iin: user.Iin
                     })
                 }else {
                     res.status(400).json({ massage: "password or email is wrong"})
@@ -42,8 +42,7 @@ class Auth{
                     const newUser = new userModel({
                         lastname: lastname,
                         firstname: firstname,
-                        IIN: iin,
-                        label: label,
+                        Iin: iin,
                         password: bcrypt.hashSync(password, salt),
                     }).save();
                     res.status(200).json({ massage: 'user created' })

@@ -8,27 +8,21 @@ var width = Dimensions.get('window').width; //full width
 var height = Dimensions.get('window').height;
 
 const SinginScreen = ({navigation}) => {
-    const [login, setLogin] = useState("")
+    const [iin, setIin] = useState("")
     const [password, setPassword] = useState("")
-    
-    const onPressChangeTextInputLogin = (userLogin) => {
-        setLogin(userLogin)
-    }
-    const onPressChangeTextInputPassword = (userPassword) => {
-        setPassword(userPassword)
-    }
+
 
     const onPressLogin = async () => {
         try{
             await axios.post(`${config.API_URI}${config.API_VERSION}/singin`, {
-                email: login,
+                iin: iin,
                 password: password,
                 label: 'patient',
             }).then(async (response) => {
                 await AsyncStorage.setItem('uid', response.data.uid)
                 await AsyncStorage.setItem('lastname', response.data.lastname)
                 await AsyncStorage.setItem('firstname', response.data.firstname)
-                await AsyncStorage.setItem('email', response.data.email)
+                await AsyncStorage.setItem('iin', response.data.iin)
                 console.log(response.data);
             });
             
@@ -47,68 +41,56 @@ const SinginScreen = ({navigation}) => {
     }
 
     return(
-        <View style={{width: width, height: height-300, justifyContent: 'center', alignItems: 'center', }}>
-            <View style={{  }}>
-                <View style={{ paddingBottom: 15, }}>
-                    <Text style={{ color: "#A2A9AB", fontSize: 26, fontWeight: '400',  textAlign: 'center'}}>Qosh keldińiz</Text>
+        <View style={{display: 'flex', justifyContent: 'center', flexDirection: 'row', marginTop: 180}}>
+            <View>
+                <View style={{paddingHorizontal: 15, paddingVertical: 8, display: 'flex', justifyContent: 'center', flexDirection: 'row',}}>
+                    <Text style={{ fontSize: 20, color: "#fff", fontWeight: '700'}}>Қош келдініз</Text>
                 </View>
-                
-                <View style={{ paddingBottom: 25, paddingTop: 5, alignItems: 'center',  display: 'flex', flexDirection: 'row' }}>
-                    <View style={{ paddingRight: 12 }}>
-                        <View style={{paddingBottom: 15, paddingTop: 15,}}>
-                            <Text style={{ color: "#A2A9AB", fontSize: 18, padding: 5, }}>Email</Text>
-                        </View>
-                        <View style={{paddingBottom: 15, paddingTop: 15,}}>
-                            <Text style={{ color: "#A2A9AB", fontSize: 18, padding: 5, }}>Password</Text>
-                        </View>
-                        
-                    </View> 
-                    <View style={{ display: 'flex', alignItems: 'center', }}>
-                    {/* email */}
-                        <View style={{paddingBottom: 15, paddingTop: 15,}}>
-                            <TextInput
-                                numberOfLines={1} 
-                                maxLength={50}
-                                onChangeText={uLogin => onPressChangeTextInputLogin(uLogin)} 
-                                value={login}
-                                style={{ color:"#A2A9AB", width: 230, height: 32, padding: 8, borderColor: "#A2A9AB", borderWidth: 1, }}
-                            />
-                        </View>
-                     {/* password */}
-                        <View style={{paddingBottom: 15, paddingTop: 15,}}>
-                            <TextInput
-                                numberOfLines={1} 
-                                maxLength={50}
-                                onChangeText={uPass => onPressChangeTextInputPassword(uPass)} 
-                                value={password}
-                                style={{ color: "#A2A9AB", width: 230, height: 32, padding: 8, borderColor: "#A2A9AB", borderWidth: 1, }}
-                            />
-                        </View>
+                <View>
+                    <View style={{marginVertical: 12}}>
+                        <Text style={{paddingBottom: 8, fontSize: 18, color: "#fff"}}>ЖСН</Text>
+                        <TextInput 
+                            umberOfLines={1} 
+                            maxLength={50}
+                            onChangeText={vel => setIin(vel)} 
+                            value={iin}
+                            style={{ 
+                                color:"#A2A9AB", 
+                                width: (width/100)*80, 
+                                height: 32, 
+                                padding: 8, 
+                                borderColor: "#A2A9AB", 
+                                borderWidth: 1, }}
+                        />
                     </View>
-                </View>
-                <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center',  }}>
-                    <View style={{ width: 180, }}>
-                        <Button 
-                            onPress={()=> onPressLogin()}
-                            color="#000"
-                            title={'kirý'}
+                    <View style={{marginVertical: 12}}>
+                        <Text style={{paddingBottom: 8, fontSize: 18, color: "#fff"}}>Құпия сөз</Text>
+                        <TextInput 
+                            umberOfLines={1} 
+                            maxLength={50}
+                            onChangeText={vel => setPassword(vel)} 
+                            value={password}
+                            style={{ 
+                                color:"#A2A9AB", 
+                                width: (width/100)*80, 
+                                height: 32, 
+                                padding: 8, 
+                                borderColor: "#A2A9AB", 
+                                borderWidth: 1, }}
                         />
                     </View>
                 </View>
-                <View style={{ paddingLeft: 10, paddingRight: 10, paddingTop: 5, display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                    <TouchableOpacity onPress={()=> console.log('e') }>
-                        <View style={{ padding: 15}}>
-                            <Text style={{color: "#A2A9AB"}} >qupıa sózdi umytyp qaldym</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={()=> onPressAuth() }>
-                        <View style={{ padding: 15}}>
-                            <Text style={{color: "#A2A9AB"}}>tirkeý</Text>
-                        </View>
-                    </TouchableOpacity>
+                <View style={{display: 'flex', justifyContent: 'flex-end', flexDirection: 'row', padding: 5,}}>
+                    <Text
+                        onPress={() => onPressAuth()} 
+                        style={{paddingVertical: 3, color: "#fff", fontSize: 14, fontWeight: 600 }}>Тіркеліу</Text>
                 </View>
-
-            </View>            
+                <View style={{display: 'flex', justifyContent: 'center', flexDirection: 'row', padding: 5,}}>
+                    <Text
+                        onPress={() => onPressLogin()} 
+                        style={{paddingVertical: 5, color: "#fff", fontSize: 18, fontWeight: 600 }}>Кіру</Text>
+                </View>
+            </View>
         </View>
     )
 }

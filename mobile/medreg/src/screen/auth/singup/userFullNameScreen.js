@@ -26,7 +26,7 @@ const UserNameScreen = ({navigation}) => {
                     <TextInput 
                         umberOfLines={1} 
                         maxLength={50}
-                        onChangeText={vel =>  setNewUserIIN(newUserIIN)} 
+                        onChangeText={vel =>  setNewUserIIN(vel)} 
                         value={newUserIIN}
                         style={{ 
                             color:"#A2A9AB", 

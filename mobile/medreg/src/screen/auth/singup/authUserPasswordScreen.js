@@ -14,20 +14,30 @@ const AuthUserPasswordScreen = (props) => {
 
     const auth = async () => {
         if(newUserPassword == newUserPasswordConfirem) {
+            console.log("auth")
             singup();
         }else{
 
         }
     }
-    const singup = () => {
+    const singup = async () => {
         try {
-
+            await axios.post(`${config.API_URI}${config.API_VERSION}/auth/user/singin`, {
+                iin: props.route.params.content.iin,
+                firstname: props.route.params.content.firstname,
+                lastname: props.route.params.content.lastname,
+                password: newUserPassword,
+               
+            }).then((response) => {
+                if(response.status >= 200 && response.status < 400) {
+                    props.navigation.navigate('singin');
+                }
+            });
         }
         catch(e) {
             console.log(e)
         }
     }
-
 
 
     return (

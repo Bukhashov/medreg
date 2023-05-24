@@ -12,9 +12,6 @@ class Result {
         let result = await modelResult.findById(id);
         res.status(200).json(result);
     }
-
-
-
 }
 
 module.exports = new Result;

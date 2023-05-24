@@ -25,7 +25,7 @@ const AuthUserPasswordScreen = (props) => {
             console.log(props.route.params);
             console.log(newUserPassword);
 
-            await axios.post(`${config.API_URI}${config.API_VERSION}/auth/user/singin`, {
+            await axios.post(`${config.API_URI}${config.API_VERSION}/auth/user/singup`, {
                 iin: props.route.params.content.newUserIIN,
                 firstname: props.route.params.content.newUserFirstname,
                 lastname: props.route.params.content.newUserLastname,

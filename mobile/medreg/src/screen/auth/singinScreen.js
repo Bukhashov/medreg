@@ -11,13 +11,11 @@ const SinginScreen = ({navigation}) => {
     const [iin, setIin] = useState("")
     const [password, setPassword] = useState("")
 
-
     const onPressLogin = async () => {
         try{
-            await axios.post(`${config.API_URI}${config.API_VERSION}/singin`, {
+            await axios.post(`${config.API_URI}${config.API_VERSION}/auth/user/singin`, {
                 iin: iin,
                 password: password,
-                label: 'patient',
             }).then(async (response) => {
                 await AsyncStorage.setItem('uid', response.data.uid)
                 await AsyncStorage.setItem('lastname', response.data.lastname)
@@ -30,7 +28,7 @@ const SinginScreen = ({navigation}) => {
         }
         catch(e){
             console.log(e);
-            setLogin("")
+            setIin("")
             setPassword("")
             console.log("login no")
         }

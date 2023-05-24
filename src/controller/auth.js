@@ -17,7 +17,8 @@ class Auth{
                        uid: user._id,
                        lastname: user.lastname,
                        firstname: user.firstname,
-                       iin: user.Iin
+                       iin: user.Iin,
+                       patronymic: user.patronymic
                     })
                 }else {
                     res.status(400).json({ massage: "password or email is wrong"})

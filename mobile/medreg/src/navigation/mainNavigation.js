@@ -6,7 +6,8 @@ import { Ionicons } from '@expo/vector-icons';
 // Screen
 
 
-import ProfileScreen from '../screen/home/homeScreen';
+import HomeScreen from '../screen/home/homeScreen';
+import ProfileScreen from '../screen/auth/profileScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -41,36 +42,35 @@ const MainNavigation = ({navigation}) => {
                     else if (route.name === "Результаты") {
                         iconName = focused ? 'people' : 'people-outline' 
                     }
-                    else if (route.name === "Пользователь") {
+                    else if (route.name === "Қолданушы") {
                         iconName = focused ? 'person' : 'person-outline' 
                     }
                     return <Ionicons name={iconName} size={size} color={color} />
                 },
+                tabBarActiveTintColor: "#fff",
+                tabBarInactiveTintColor: "#86A5DF",
                 tabBarStyle: {
-                    backgroundColor:'#fff',
+                    backgroundColor:'#A5BDE9',
                     height: 60,
-                    // borderTopColor: "#fff",
-                    // borderWidth: 1,
                 },
                 tabBarItemStyle: {
-                    margin:5,
-                    
-                    //borderRadius:10,
+                    margin:5,    
                 },
+                
                 headerStyle: {
-                    backgroundColor:'#fff',
+                    backgroundColor:'#A5BDE9',
                     // borderBottomColor: "#fff",
                     // borderWidth: 1,
                 },
                 headerTitleStyle: {
-                    color: '#000',
+                    color: '#fff',
 
                 },
             })}
         >
-            <Tab.Screen name="Главный"  component={ProfileScreen} />
+            <Tab.Screen name="Главный"  component={HomeScreen} />
             <Tab.Screen name="Результаты" component={ProfileScreen} />
-            <Tab.Screen name="Пользователь" component={ProfileScreen} />
+            <Tab.Screen name="Қолданушы" component={ProfileScreen} />
         </Tab.Navigator>
     )
 }

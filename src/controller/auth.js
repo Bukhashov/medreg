@@ -35,9 +35,9 @@ class Auth{
         
         if (lastname != "" && lastname.length > 4){
             if (password.length >= 8) {
-                const email = req.body.email;
-
-                const emailController = await userModel.find({IIN: iin})
+                
+                const emailController = await userModel.find({Iin: iin})
+                console.log(emailController);
                 if (emailController.length == 0){
                     const newUser = new userModel({
                         lastname: lastname,

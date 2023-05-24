@@ -3,12 +3,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-// Screen
 
 
+import ResultNavigation from './resultNavigation';
 import HomeScreen from '../screen/home/homeScreen';
+// Screen
 import ProfileScreen from '../screen/auth/profileScreen';
-import ResultsScreen from '../screen/results/resultsScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -41,7 +41,7 @@ const MainNavigation = ({navigation}) => {
                         iconName = focused ? 'home' : 'home-outline' 
                     }
                     else if (route.name === "Результаты") {
-                        iconName = focused ? 'people' : 'people-outline' 
+                        iconName = focused ? 'list' : 'list-outline' 
                     }
                     else if (route.name === "Қолданушы") {
                         iconName = focused ? 'person' : 'person-outline' 
@@ -70,7 +70,7 @@ const MainNavigation = ({navigation}) => {
             })}
         >
             <Tab.Screen name="Главный"  component={HomeScreen} />
-            <Tab.Screen name="Результаты" component={ResultsScreen} />
+            <Tab.Screen name="Результаты" component={ResultNavigation} />
             <Tab.Screen name="Қолданушы" component={ProfileScreen} />
         </Tab.Navigator>
     )

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "medadmin",
-    "slug": "medadmin",
+    "name": "medreg",
+    "slug": "medreg",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.berik2301.medreg"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9b0b8b93-abd9-46dc-ac6d-65f8c61e29a3"
+      }
     }
   }
 }

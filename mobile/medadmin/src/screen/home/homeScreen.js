@@ -9,19 +9,15 @@ const HomeScreen = ({navigation}) => {
     return (
         <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
             <View>
-                <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
-                    <HomeScreenMainComponent navigation={navigation} title={"Емханаға тіркелу"} to={"RegistrationScreen"} />
-                    <HomeScreenMainComponent navigation={navigation}  title={"Емхана жайлы"} to={"InfoScreen"} />
-                </View>
-
+                
                 <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                     <HomeScreenMainComponent navigation={navigation}  title={"Дәрігер шақыру"} to={"InvitationScreen"} />
-                    <HomeScreenMainComponent navigation={navigation}  title={"ФШК ға кезек алу"} to={"FshkScreen"} />
+                    <HomeScreenMainComponent navigation={navigation}  title={"ФШК ға кезектегілер"} to={"FshkScreen"} />
                 </View> 
 
                 <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                     
-                    <HomeScreenMainComponent navigation={navigation}  title={"Менін дәрілерім"} to={"MyDrugsScreen"} />  
+                    <HomeScreenMainComponent navigation={navigation}  title={"Дәрілер беру"} to={"MyDrugsScreen"} />  
                 </View> 
             </View>                      
         </View>

@@ -4,10 +4,11 @@ import { useFocusEffect } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
-import ResultNavigation from './resultNavigation';
+
 import HomeNavigation from './homeNavigation';
 // Screen
 import ProfileScreen from '../screen/auth/profileScreen';
+import ResultScreen from '../screen/results/resultScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -69,7 +70,7 @@ const MainNavigation = ({navigation}) => {
             })}
         >
             <Tab.Screen name="Басты бет"  component={HomeNavigation} />
-            <Tab.Screen name="Нәтижелер" component={ResultNavigation} />
+            <Tab.Screen name="Нәтижелер" component={ResultScreen} />
             <Tab.Screen name="Қолданушы" component={ProfileScreen} />
         </Tab.Navigator>
     )

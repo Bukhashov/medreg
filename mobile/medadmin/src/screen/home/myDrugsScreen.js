@@ -12,16 +12,7 @@ const MyDrugsScreen = ({navigation}) => {
     const [dName, setDName] = React.useState("");
     const [subject, setSubject,] = React.useState("");
 
-    const feachMyDrugs = async () => {
-        try{
-            await axios.get(`${config.API_URI}${config.API_VERSION}/drugs/${await AsyncStorage.getItem('iin').then(iin => iin)}/all`)
-            .then((res)=> {
-                setMyDrugs(res.data)
-            })
-        }catch(e){
-            console.log(e)
-        }
-    }
+    
     const sendDrougs = async () => {
         try{
             await axios.post(`${config.API_URI}${config.API_VERSION}/drugs/add`, {

@@ -9,7 +9,7 @@ class Drugs {
     add = async (req, res) => {
         const { iin, title, subject } = req.body;
         new drugsModel({
-            inn: iin,
+            iin: iin,
             title: title,
             subject: subject   
         }).save();
